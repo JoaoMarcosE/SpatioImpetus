@@ -48,7 +48,22 @@ public class UIManager : MonoBehaviour
                 ammunitions[idxAmmunition].enabled = false;
         }
 
-        numOfEnergyBars = energy / 10;
-        numOfAmmunitions = ammunition / 10;
+        if (energy > 40)
+            numOfEnergyBars = 3;
+        else if (energy > 20)
+            numOfEnergyBars = 2;
+        else if (energy > 0)
+            numOfEnergyBars = 1;
+        else
+            numOfEnergyBars = 0;
+
+        if (ammunition > 200)
+            numOfAmmunitions = 3;
+        else if (ammunition > 100)
+            numOfAmmunitions = 2;
+        else if (ammunition > 0)
+            numOfAmmunitions = 1;
+        else
+            numOfAmmunitions = 0;
     }
 }

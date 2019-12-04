@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         GetComponent<UIManager>().health = 1;
-        GetComponent<UIManager>().energy = 30;
+        GetComponent<UIManager>().energy = 60;
         GetComponent<UIManager>().ammunition = 300;
 
         GetComponent<UIManager>().numOfHearts = 3;
@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && GetComponent<UIManager>().ammunition > 0)
         {
             GetComponent<AudioSource>().Play();
 
