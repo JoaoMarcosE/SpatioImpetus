@@ -57,9 +57,9 @@ public class UIManager : MonoBehaviour
         else
             numOfEnergyBars = 0;
 
-        if (ammunition > 200)
+        if (ammunition > 100)
             numOfAmmunitions = 3;
-        else if (ammunition > 100)
+        else if (ammunition > 50)
             numOfAmmunitions = 2;
         else if (ammunition > 0)
             numOfAmmunitions = 1;

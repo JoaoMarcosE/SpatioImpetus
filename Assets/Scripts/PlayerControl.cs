@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
     {
         GetComponent<UIManager>().health = 1;
         GetComponent<UIManager>().energy = 30;
-        GetComponent<UIManager>().ammunition = 300;
+        GetComponent<UIManager>().ammunition = 150;
 
         GetComponent<UIManager>().numOfHearts = 3;
         GetComponent<UIManager>().numOfEnergyBars = 3;
@@ -95,7 +95,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if (collision.tag == "AmmoDrop")
         {
-            GetComponent<UIManager>().ammunition += 100;
+            GetComponent<UIManager>().ammunition += 50;
         }
         else if (collision.tag == "EnergyDrop")
         {

@@ -12,14 +12,14 @@ public class EnemySpawner : MonoBehaviour
     public float numberOfEnemiesOnScreen = 0;
 
     float numberOfEnemiesSpawned = 0;
-    int maxNumberOfEnemiesSpawned = 50;
+    int maxNumberOfEnemiesSpawned = 60;
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("SpawnEnemy", maxSpawnRateInSeconds);
 
-        InvokeRepeating("IncreaseSpawnRate", 0f, 15f);
+        InvokeRepeating("IncreaseSpawnRate", 0f, 10f);
     }
 
     void Update()

@@ -111,7 +111,7 @@ public class Enemy3Control : MonoBehaviour
 
     bool DropAmmo()
     {
-        int probabilityNumber = Random.Range(0, 5);
+        int probabilityNumber = Random.Range(0, 20);
         if (probabilityNumber == 3)
         {
             GameObject newAmmoDrop = (GameObject)Instantiate(ammoDrop);
@@ -125,7 +125,7 @@ public class Enemy3Control : MonoBehaviour
 
     bool DropEnergy()
     {
-        int probabilityNumber = Random.Range(0, 5);
+        int probabilityNumber = Random.Range(0, 15);
         if (probabilityNumber == 4)
         {
             GameObject newEnergyDrop = (GameObject)Instantiate(energyDrop);
