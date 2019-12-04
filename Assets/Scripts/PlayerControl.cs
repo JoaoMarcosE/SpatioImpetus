@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         GetComponent<UIManager>().health = 1;
-        GetComponent<UIManager>().energy = 60;
+        GetComponent<UIManager>().energy = 30;
         GetComponent<UIManager>().ammunition = 300;
 
         GetComponent<UIManager>().numOfHearts = 3;
@@ -47,9 +47,10 @@ public class PlayerControl : MonoBehaviour
 
         Vector2 direction = new Vector2(x, y).normalized;
 
-        Move(direction);
+        if( GetComponent<UIManager>().energy > 0)
+            Move(direction);
 
-        energyTimer += 0.1f;
+        energyTimer += 1f;
 
         if (energyTimer > 150)
         {
