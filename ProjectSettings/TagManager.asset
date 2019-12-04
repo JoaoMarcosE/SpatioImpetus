@@ -8,6 +8,8 @@ TagManager:
   - EnemyShipTag
   - PlayerBulletTag
   - EnemyBulletTag
+  - AmmoDrop
+  - EnergyDrop
   layers:
   - Default
   - TransparentFX
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 768629137
+    locked: 0
+  - name: Screens
+    uniqueID: 2897695249
     locked: 0

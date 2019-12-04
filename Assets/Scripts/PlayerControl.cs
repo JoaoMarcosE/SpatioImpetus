@@ -12,12 +12,14 @@ public class PlayerControl : MonoBehaviour
 
     public float speed;
 
+    float energyTimer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<UIManager>().health = 1;
-        GetComponent<UIManager>().energy = 10;
-        GetComponent<UIManager>().ammunition = 10;
+        GetComponent<UIManager>().energy = 30;
+        GetComponent<UIManager>().ammunition = 300;
 
         GetComponent<UIManager>().numOfHearts = 3;
         GetComponent<UIManager>().numOfEnergyBars = 3;
@@ -36,6 +38,8 @@ public class PlayerControl : MonoBehaviour
 
             GameObject bullet2 = (GameObject)Instantiate(playerBullet);
             bullet2.transform.position = bulletPosition2.transform.position;
+
+            GetComponent<UIManager>().ammunition -= 1;
         }
 
         float x = Input.GetAxisRaw("Horizontal");
@@ -44,6 +48,14 @@ public class PlayerControl : MonoBehaviour
         Vector2 direction = new Vector2(x, y).normalized;
 
         Move(direction);
+
+        energyTimer += 0.1f;
+
+        if (energyTimer > 150)
+        {
+            energyTimer = 0;
+            GetComponent<UIManager>().energy -= 1;
+        }
     }
 
     void Move(Vector2 direction)
@@ -76,8 +88,17 @@ public class PlayerControl : MonoBehaviour
 
             if (GetComponent<UIManager>().numOfHearts == 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                PlayerPrefs.SetInt("lastSceneIndex", SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene(5); // Game Over
             }
+        }
+        else if (collision.tag == "AmmoDrop")
+        {
+            GetComponent<UIManager>().ammunition += 100;
+        }
+        else if (collision.tag == "EnergyDrop")
+        {
+            GetComponent<UIManager>().energy += 10;
         }
     }
 

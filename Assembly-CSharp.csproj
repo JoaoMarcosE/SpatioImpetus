@@ -60,14 +60,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DropBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Enemy1Control.cs" />
+    <Compile Include="Assets\Scripts\Enemy1Gun.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Control.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Gun.cs" />
+    <Compile Include="Assets\Scripts\Enemy3Control.cs" />
+    <Compile Include="Assets\Scripts\Enemy3Gun.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
-    <Compile Include="Assets\Scripts\EnemyControl.cs" />
-    <Compile Include="Assets\Scripts\EnemyGun.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
+    <Compile Include="Assets\Scripts\GameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\LevelChanger.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\StarGenerator.cs" />
     <Compile Include="Assets\Scripts\Stars.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />

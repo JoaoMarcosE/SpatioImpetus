@@ -11,6 +11,9 @@ public class EnemySpawner : MonoBehaviour
     float maxNumberOfEnemiesOnScreen = 5;
     public float numberOfEnemiesOnScreen = 0;
 
+    float numberOfEnemiesSpawned = 0;
+    int maxNumberOfEnemiesSpawned = 50;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +22,22 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating("IncreaseSpawnRate", 0f, 30f);
     }
 
+    void Update()
+    {
+        GameObject[] enemysOnScreen = GameObject.FindGameObjectsWithTag("EnemyShipTag");
+        if (enemysOnScreen.Length == 0 && numberOfEnemiesSpawned == maxNumberOfEnemiesSpawned)
+        {
+            FindObjectOfType<LevelChanger>().FadeToLevel();
+        }
+
+        numberOfEnemiesOnScreen = enemysOnScreen.Length;
+    }
+
     void SpawnEnemy()
     {
+        if (numberOfEnemiesSpawned >= maxNumberOfEnemiesSpawned)
+            return;
+
         if (numberOfEnemiesOnScreen < maxNumberOfEnemiesOnScreen)
         {
             Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
@@ -28,11 +45,11 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject newEnemy = (GameObject)Instantiate(enemy);
             newEnemy.transform.position = new Vector2(max.x, Random.Range(min.y, max.y));
-
-            //numberOfEnemiesOnScreen++;
         }
 
         ScheduleNextEnemySpawn();
+
+        ++numberOfEnemiesSpawned;
     }
 
     void ScheduleNextEnemySpawn()

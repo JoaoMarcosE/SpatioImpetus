@@ -47,5 +47,8 @@ public class UIManager : MonoBehaviour
             else
                 ammunitions[idxAmmunition].enabled = false;
         }
+
+        numOfEnergyBars = energy / 10;
+        numOfAmmunitions = ammunition / 10;
     }
 }
